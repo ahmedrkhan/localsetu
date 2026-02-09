@@ -59,7 +59,7 @@ export default function ShopDetails() {
                         <img
                             src={
                                 product.image
-                                    ? `http://localhost:5000/uploads/${product.image}`
+                                    ? `${import.meta.env.VITE_BACKEND_URL}/uploads/${product.image}`
                                     : "https://via.placeholder.com/300"
                             }
                             alt={product.name}

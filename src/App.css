@@ -976,7 +976,6 @@ select:focus {
   cursor: pointer;
 }
 
-/* ===== STATUS ===== */
 .shops-status {
   text-align: center;
   color: #94a3b8;
@@ -997,7 +996,7 @@ select:focus {
 }
 
 /* *=====STATUS=====*/
-*/ .shops-status {
+ .shops-status {
   margin-top: 20px;
   color: #9ca3af;
 }
@@ -1347,7 +1346,6 @@ select:focus {
   margin-bottom: 0.8rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  /* show max 2 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

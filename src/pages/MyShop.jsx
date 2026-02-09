@@ -68,7 +68,7 @@ export default function MyShop() {
         <div className="clsns-shop-container">
             {shop.image && (
                 <img
-                    src={`http://localhost:5000/uploads/${shop.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${shop.image}`}
                     alt={shop.name}
                     className="clsns-shop-image"
                 />
@@ -107,7 +107,7 @@ export default function MyShop() {
                     <div key={product._id} className="clsns-product-card">
                         {product.image && (
                             <img
-                                src={`http://localhost:5000/uploads/${product.image}`}
+                                src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${shop.image}`}
                                 alt={product.name}
                                 className="clsns-product-image"
                             />

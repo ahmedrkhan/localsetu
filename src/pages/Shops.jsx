@@ -76,7 +76,7 @@ export default function Shops() {
                   className="shop-img"
                   src={
                     shop.image
-                      ? `http://localhost:5000/uploads/${shop.image}`
+                      ? `${import.meta.env.VITE_BACKEND_URL}/uploads/${shop.image}`
                       : "/images/shop-placeholder.png"
                   }
                   alt={shop.name}

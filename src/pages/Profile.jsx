@@ -72,8 +72,8 @@ export default function Profile() {
 
                 {editingProfile ? (
                     <div className="profile-form">
-                        <input className="profile-input" value={profileForm.name} onChange={(e) => setProfileForm({ ...profileForm, name: e.target.value })} placeholder="Name"/>
-                        <input className="profile-input" value={profileForm.email} onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })} placeholder="Email"/>
+                        <input className="profile-input" value={profileForm.name} onChange={(e) => setProfileForm({ ...profileForm, name: e.target.value })} placeholder="Name" />
+                        <input className="profile-input" value={profileForm.email} onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })} placeholder="Email" />
                         <button className="profile-btn" onClick={saveProfile}>Save</button>
                         <button className="profile-btn profile-btn-cancel" onClick={() => setEditingProfile(false)}>Cancel</button>
                     </div>
@@ -93,14 +93,20 @@ export default function Profile() {
                 <section className="shop-section">
                     <h2 className="shop-section-title">{shopExists ? "Edit Shop" : "Create Shop"}</h2>
 
-                    {shop.image && <img src={`http://localhost:5000/uploads/${shop.image}`} alt="shop" className="shop-image"/>}
+                    {shop.image && (
+                        <img
+                            src={`${import.meta.env.VITE_BACKEND_URL}/uploads/${shop.image}`}
+                            alt="shop"
+                            className="shop-image"
+                        />
+                    )}
 
-                    <input type="text" className="shop-input" placeholder="Shop name" value={shop.name} onChange={(e) => setShop({ ...shop, name: e.target.value })}/>
-                    <input type="text" className="shop-input" placeholder="Address" value={shop.address} onChange={(e) => setShop({ ...shop, address: e.target.value })}/>
-                    <input type="text" className="shop-input" placeholder="Area" value={shop.area} onChange={(e) => setShop({ ...shop, area: e.target.value })}/>
-                    <input type="text" className={`shop-input ${shop.pincode ? "shop-input-disabled" : ""}`} placeholder="Pincode" value={shop.pincode} onChange={(e) => setShop({ ...shop, pincode: e.target.value })} disabled={!!shop.pincode}/>
+                    <input type="text" className="shop-input" placeholder="Shop name" value={shop.name} onChange={(e) => setShop({ ...shop, name: e.target.value })} />
+                    <input type="text" className="shop-input" placeholder="Address" value={shop.address} onChange={(e) => setShop({ ...shop, address: e.target.value })} />
+                    <input type="text" className="shop-input" placeholder="Area" value={shop.area} onChange={(e) => setShop({ ...shop, area: e.target.value })} />
+                    <input type="text" className={`shop-input ${shop.pincode ? "shop-input-disabled" : ""}`} placeholder="Pincode" value={shop.pincode} onChange={(e) => setShop({ ...shop, pincode: e.target.value })} disabled={!!shop.pincode} />
                     <textarea className="shop-textarea" placeholder="Description" value={shop.description} onChange={(e) => setShop({ ...shop, description: e.target.value })}></textarea>
-                    <input type="file" className="shop-file" ref={fileRef} name="image"/>
+                    <input type="file" className="shop-file" ref={fileRef} name="image" />
 
                     <button className="shop-btn" onClick={saveShop}>{shopExists ? "Update Shop" : "Create Shop"}</button>
                 </section>

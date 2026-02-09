@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "../services/axios";
 import { CartContext } from "../components/CartContext";
 import "../App.css";
+import { BACKEND_URL } from "../config";
+
 
 export default function ShopDetails() {
   const { shopId } = useParams();
@@ -62,7 +64,7 @@ export default function ShopDetails() {
             <img
               src={
                 p.image
-                  ? `http://localhost:5000/uploads/${p.image}`
+                  ? `${BACKEND_URL}/uploads/${p.image}`
                   : "https://via.placeholder.com/300"
               }
               alt={p.name}
@@ -94,9 +96,10 @@ export default function ShopDetails() {
             <img
               src={
                 selectedProduct.image
-                  ? `http://localhost:5000/uploads/${selectedProduct.image}`
+                  ? `${BACKEND_URL}/uploads/${selectedProduct.image}`
                   : "https://via.placeholder.com/600"
               }
+
               alt={selectedProduct.name}
             />
             <h3>{selectedProduct.name}</h3>

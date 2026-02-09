@@ -3,8 +3,9 @@ import axios from "../services/axios";
 import { AuthContext } from "../components/AuthContext";
 import { io } from "socket.io-client";
 import "../App.css";
-
-const socket = io("http://localhost:5000");
+export const socket = io(import.meta.env.VITE_BACKEND_URL, {
+  transports: ["websocket", "polling"],
+});
 
 export default function Dashboard() {
   const { user } = useContext(AuthContext);
